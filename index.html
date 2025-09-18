@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon.svg"
+    />
+    <script defer src="./scripts/main.js" type="module"></script>
+    <title>Kanban Task Management</title>
+  </head>
+  <body>
+    <nav class="side-bar" id="side-bar-div">
+      <div id="side-logo-div">
+        <img id="logo" src="./assets/logo-light.svg" alt="logo-light" />
+      </div>
+      <div class="boards-nav-links-div" id="boards-nav-links-div">
+        <h4 id="headline-sidepanel">ALL BOARDS (1)</h4>
+        <button class="board-btn">Launch Career</button>
+      </div>
+    </nav>
+
+    <div id="layout">
+      <header id="header" class="sticky-header">
+        <div class="header-name-div">
+          <img
+            src="./assets/favicon.svg"
+            alt="logo-mobile"
+            class="logo-mobile"
+          />
+          <h2 class="header-board-name" id="header-board-name">Launch Career</h2>
+        </div>
+        <div class="header-buttons">
+          <button class="add-new-task-btn" id="add-new-task-btn">
+            <span class="btn-text">+ Add New Task</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="container">
+        <main class="card-column-main">
+          <div class="column-div" data-status="todo">
+            <div class="column-head-div">
+              <span class="dot" id="todo-dot"></span>
+              <h4 id="toDoText" class="columnHeader">TODO (0)</h4>
+            </div>
+            <div class="tasks-container" data-status="todo"></div>
+          </div>
+          <div class="column-div" data-status="doing">
+            <div class="column-head-div">
+              <span class="dot" id="doing-dot"></span>
+              <h4 id="doingText" class="columnHeader">DOING (0)</h4>
+            </div>
+            <div class="tasks-container" data-status="doing"></div>
+          </div>
+          <div class="column-div" data-status="done">
+            <div class="column-head-div">
+              <span class="dot" id="done-dot"></span>
+              <h4 id="doneText" class="columnHeader">DONE (0)</h4>
+            </div>
+            <div class="tasks-container" data-status="done"></div>
+          </div>
+        </main>
+      </div>
+    </div>
+    
+    <dialog id="task-modal">
+      <div class="modal-header">
+        <h3 id="task-title" class="task-modal-title">Task Details</h3>
+        <button type="button" class="close-btn" id="close-modal-btn">&times;</button>
+      </div>
+      <p id="task-desc" class="task-modal-desc"></p>
+    </dialog>
+
+    <dialog id="add-task-modal">
+      <form method="dialog" id="add-task-form">
+        <div class="modal-header">
+          <h3>Add New Task</h3>
+          <button type="button" class="close-btn" id="close-add-modal-btn">&times;</button>
+        </div>
+        <label for="add-task-title">Title</label>
+        <input type="text" id="add-task-title" name="title" required placeholder="e.g. Take coffee break"/>
+        <label for="add-task-desc">Description</label>
+        <textarea id="add-task-desc" name="description" rows="4" placeholder="e.g. It's always good to take a break. This 15 minute break will recharge the batteries a little."></textarea>
+        <label for="add-task-status">Status</label>
+        <select id="add-task-status" name="status" required>
+          <option value="todo">Todo</option>
+          <option value="doing">Doing</option>
+          <option value="done">Done</option>
+        </select>
+        <button type="submit" class="form-btn">Create Task</button>
+      </form>
+    </dialog>
+  </body>
+</html>
